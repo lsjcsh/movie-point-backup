@@ -10,6 +10,7 @@ public class Mypage {
         @Id
         @GeneratedValue(strategy=GenerationType.AUTO)
         private Long id;
+        private Long bookingId;
         private Integer qty;
         private String movieName;
         private String seat;
@@ -24,6 +25,15 @@ public class Mypage {
         public void setId(Long id) {
             this.id = id;
         }
+
+        public Long getBookingId() {
+            return bookingId;
+        }
+
+        public void setBookingId(Long bookingId) {
+            this.bookingId = bookingId;
+        }
+
         public Integer getQty() {
             return qty;
         }
