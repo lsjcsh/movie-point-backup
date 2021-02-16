@@ -12,6 +12,9 @@ import java.util.Date;
 public interface PaymentService {
 
     @RequestMapping(method= RequestMethod.GET, path="/payments")
+    public void pay(@RequestBody Payment payment);
+    
+    @RequestMapping(method= RequestMethod.GET, path="/cancellations")
     public void cancel(@RequestBody Payment payment);
 
 }

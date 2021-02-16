@@ -22,6 +22,10 @@ public class Payment {
         paid.publishAfterCommit();
 
 
+    }
+
+    @PostUpdate
+    public void onPostUpdate(){
         PaymentCanceled paymentCanceled = new PaymentCanceled();
         BeanUtils.copyProperties(this, paymentCanceled);
         paymentCanceled.publishAfterCommit();

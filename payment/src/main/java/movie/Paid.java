@@ -6,6 +6,10 @@ public class Paid extends AbstractEvent {
     private Long bookingId;
     private String status;
 
+    public Paid(){
+        super();
+    }
+
     public Long getId() {
         return id;
     }

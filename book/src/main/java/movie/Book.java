@@ -26,11 +26,16 @@ public class Book {
         //Following code causes dependency to external APIs
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
-        // movie.external.Payment payment = new movie.external.Payment();
+        movie.external.Payment payment = new movie.external.Payment();
         // mappings goes here
-        // BookApplication.applicationContext.getBean(movie.external.PaymentService.class).pay(payment);
+        BookApplication.applicationContext.getBean(movie.external.PaymentService.class)
+            .pay(payment);
 
 
+    }
+
+    @PostUpdate
+    public void onPostUpdate(){
         Canceled canceled = new Canceled();
         BeanUtils.copyProperties(this, canceled);
         canceled.publishAfterCommit();

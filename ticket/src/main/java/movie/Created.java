@@ -6,6 +6,10 @@ public class Created extends AbstractEvent {
     private Long bookingId;
     private String status;
 
+    public Created(){
+        super();
+    }
+
     public Long getId() {
         return id;
     }
