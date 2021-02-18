@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PolicyHandler{
+
+    @Autowired
+    ReviewRepository reviewRepository;
+    
     @StreamListener(KafkaProcessor.INPUT)
     public void onStringEventListener(@Payload String eventString){
 
@@ -19,7 +23,15 @@ public class PolicyHandler{
     public void wheneverPrinted_(@Payload Printed printed){
 
         if(printed.isMe()){
+            System.out.println("======================================");
             System.out.println("##### listener  : " + printed.toJson());
+            System.out.println("======================================");
+            
+            Review review = new Review();
+            review.setBookingId(printed.getId());
+            review.setStatus("Waiting Review");
+
+            reviewRepository.save(review);
         }
     }
 

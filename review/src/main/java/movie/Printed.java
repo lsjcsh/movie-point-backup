@@ -4,7 +4,7 @@ public class Printed extends AbstractEvent {
 
     private Long id;
     private Long bookingId;
-    private Long status;
+    private String status;
 
     public Long getId() {
         return id;
@@ -20,11 +20,11 @@ public class Printed extends AbstractEvent {
     public void setBookingId(Long bookingId) {
         this.bookingId = bookingId;
     }
-    public Long getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Long status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

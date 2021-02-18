@@ -30,6 +30,7 @@ public class Ticket {
     public void onPostUpdate(){
         Printed printed = new Printed();
         BeanUtils.copyProperties(this, printed);
+        printed.setStatus("Printed");
         printed.publishAfterCommit();
 
 

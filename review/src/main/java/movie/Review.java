@@ -29,6 +29,7 @@ public class Review {
     public void onPostUpdate(){
         WrittenReview writtenReview = new WrittenReview();
         BeanUtils.copyProperties(this, writtenReview);
+        writtenReview.setStatus("Updated Review");
         writtenReview.publishAfterCommit();
 
 
