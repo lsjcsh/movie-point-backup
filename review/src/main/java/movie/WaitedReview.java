@@ -1,4 +1,4 @@
-package MOVIE;
+package movie;
 
 public class WaitedReview extends AbstractEvent {
 
