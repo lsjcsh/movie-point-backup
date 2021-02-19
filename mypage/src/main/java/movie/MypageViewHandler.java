@@ -78,7 +78,7 @@ public class MypageViewHandler {
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenBooked_then_CREATE_1 (@Payload WrittenReview writtenReview) {
+    public void whenWrittenReviw (@Payload WrittenReview writtenReview) {
         try {
             if (writtenReview.isMe()) {
                 // view 객체 생성

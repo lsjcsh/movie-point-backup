@@ -45,6 +45,10 @@ public class PolicyHandler{
 
         if (canceled.isMe()) {
 
+            System.out.println("--------------------------------------");
+            System.out.println("##### listener  : " + canceled.toJson());
+            System.out.println("--------------------------------------");
+
             List<Ticket> ticketList = ticketRepository.findByBookingId(canceled.getId());
             for(Ticket ticket : ticketList) {
                 ticket.setStatus("Canceled");
