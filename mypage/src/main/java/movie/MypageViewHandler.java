@@ -78,16 +78,16 @@ public class MypageViewHandler {
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenWrittenReviw (@Payload WrittenReview writtenReview) {
+    public void whenWrittenReviw (@Payload WrittenPoint writtenPoint) {
         try {
-            if (writtenReview.isMe()) {
+            if (writtenPoint.isMe()) {
                 // view 객체 생성
-                List<Mypage> mypageList = mypageRepository.findByBookingId(writtenReview.getBookingId());
+                List<Mypage> mypageList = mypageRepository.findByBookingId(writtenPoint.getBookingId());
                 // view 객체에 이벤트의 Value 를 set 함
                 for(Mypage mypage : mypageList) {
-                    mypage.setScore(writtenReview.getScore());
-                    mypage.setContents(writtenReview.getContents());
-                    mypage.setStatus(writtenReview.getStatus());
+                    mypage.setScore(writtenPoint.getScore());
+                    mypage.setContents(writtenPoint.getContents());
+                    mypage.setStatus(writtenPoint.getStatus());
 
                     // view 레파지 토리에 save
                     mypageRepository.save(mypage);

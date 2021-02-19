@@ -28,11 +28,11 @@ gateway/target/*
 mypage/target/*
 payment/target/*
 ticket/target/*
-review/target/*
+point/target/*
 
 book/.settings/*
 gateway/.settings/*
 mypage/.settings/*
 payment/.settings/*
 ticket/.settings/*
-review/.settings/*
+point/.settings/*

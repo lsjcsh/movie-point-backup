@@ -24,10 +24,10 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/tickets/** 
-        - id: review
+        - id: point
           uri: http://localhost:8085
           predicates:
-            - Path=/reviews/**             
+            - Path=/points/**             
       globalcors:
         corsConfigurations:
           '[/**]':
