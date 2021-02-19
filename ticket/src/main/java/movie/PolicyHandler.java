@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class PolicyHandler{
@@ -35,6 +36,20 @@ public class PolicyHandler{
             ticket.setStatus("Waiting");
 
             ticketRepository.save(ticket);
+        }
+    }
+
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverCanceled_(@Payload Canceled canceled){
+
+        if (canceled.isMe()) {
+
+            List<Ticket> ticketList = ticketRepository.findByBookingId(canceled.getId());
+            for(Ticket ticket : ticketList) {
+                ticket.setStatus("Canceled");
+                ticketRepository.save(ticket);
+            }
         }
     }
 
