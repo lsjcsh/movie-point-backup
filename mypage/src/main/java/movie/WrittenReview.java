@@ -1,38 +1,12 @@
 package movie;
 
-import javax.persistence.*;
-import org.springframework.beans.BeanUtils;
-import java.util.List;
+public class WrittenReview extends AbstractEvent {
 
-@Entity
-@Table(name="Review_table")
-public class Review {
-
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private Long bookingId;
     private Integer score;
     private String contents;
     private String status;
-
-    @PostPersist
-    public void onPostPersist(){
-        WaitedReview waitedReview = new WaitedReview();
-        BeanUtils.copyProperties(this, waitedReview);
-        waitedReview.publishAfterCommit();
-
-
-    }
-
-    @PostUpdate
-    public void onPostUpdate(){
-        WrittenReview writtenReview = new WrittenReview();
-        BeanUtils.copyProperties(this, writtenReview);
-        writtenReview.setStatus("Updated Review");
-        writtenReview.publishAfterCommit();
-    }
-
 
     public Long getId() {
         return id;
@@ -69,8 +43,4 @@ public class Review {
     public void setStatus(String status) {
         this.status = status;
     }
-
-
-
-
 }
