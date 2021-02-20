@@ -27,8 +27,11 @@ public class PolicyHandler{
             System.out.println("##### listener  : " + printed.toJson());
             System.out.println("======================================");
             
-            Point point = new Point();
+            Point point = new Point();    
+            
             point.setBookingId(printed.getId());
+
+            point.setScore(100);
             point.setStatus("Waiting Point");
 
             pointRepository.save(point);
