@@ -63,10 +63,10 @@ spring:
           uri: http://ticket:8080
           predicates:
             - Path=/tickets/** 
-        - id: review
-          uri: http://review:8080
+        - id: point
+          uri: http://point:8080
           predicates:
-            - Path=/reviews/**             
+            - Path=/points/**             
       globalcors:
         corsConfigurations:
           '[/**]':
