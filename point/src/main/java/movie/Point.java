@@ -29,7 +29,7 @@ public class Point {
     public void onPostUpdate(){
         WrittenPoint writtenPoint = new WrittenPoint();
         BeanUtils.copyProperties(this, writtenPoint);
-        writtenPoint.setScore(100);
+        writtenPoint.setScore(100);  //포인트지급
         writtenPoint.setStatus("Written Point");
         writtenPoint.publishAfterCommit();
     }
