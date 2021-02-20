@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "point"
+    _PROJECT_NAME: "movie-ticket"
     CODEBUILD_RESOLVED_SOURCE_VERSION : "v1"
 
 phases:
