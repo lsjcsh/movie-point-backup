@@ -30,11 +30,8 @@ public class PolicyHandler{
             Point point = new Point();    
             
             point.setBookingId(printed.getId());
-
-            point.setScore(100);
-            point.setStatus("Waiting Point");
-
-            pointRepository.save(point);
+            //point.setStatus("Written Point");
+          pointRepository.save(point);
         }
     }
 

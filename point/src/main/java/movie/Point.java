@@ -20,16 +20,17 @@ public class Point {
     public void onPostPersist(){
         WaitedPoint waitedPoint = new WaitedPoint();
         BeanUtils.copyProperties(this, waitedPoint);
+        waitedPoint.setScore(0);
+        waitedPoint.setStatus("Waited Point");
         waitedPoint.publishAfterCommit();
-
-
     }
 
     @PostUpdate
     public void onPostUpdate(){
         WrittenPoint writtenPoint = new WrittenPoint();
         BeanUtils.copyProperties(this, writtenPoint);
-        writtenPoint.setStatus("Updated Point");
+        writtenPoint.setScore(100);
+        writtenPoint.setStatus("Written Point");
         writtenPoint.publishAfterCommit();
     }
 
