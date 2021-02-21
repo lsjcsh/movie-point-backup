@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "movie-ticket"
+    _PROJECT_NAME: "ticket"
     _PROJECT_DIR: "ticket"
     CODEBUILD_RESOLVED_SOURCE_VERSION : "v1"
 
